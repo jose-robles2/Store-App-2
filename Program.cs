@@ -87,6 +87,11 @@ namespace In_class_ex
             BasicMessageClass m = new BasicMessageClass("Hello world");
 
         }
+            
+        static void linkedListOption()
+        {
+
+        }
 
         static void Main(string[] args)
         {
@@ -103,6 +108,7 @@ namespace In_class_ex
                     helloWorldOption(); 
                     break;
                 case 4:
+                    linkedListOption(); 
                     break;
                 case 5:
                     break; 

@@ -1,0 +1,14 @@
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.exe
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.deps.json
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.runtimeconfig.json
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.runtimeconfig.dev.json
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.dll
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\bin\Debug\netcoreapp3.1\In class ex.pdb
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.csproj.AssemblyReference.cache
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.AssemblyInfoInputs.cache
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.AssemblyInfo.cs
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.csproj.CoreCompileInputs.cache
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.dll
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.pdb
+C:\Users\18jos\Documents\Word Files\Washington State University\3. Junior Year\Spring 2023\Cpts 321\In class ex - one\obj\Debug\netcoreapp3.1\In class ex.genruntimeconfig.cache

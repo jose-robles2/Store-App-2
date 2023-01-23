@@ -39,9 +39,19 @@ namespace In_class_ex
 
         static void passByReferenceAndValue()
         {
-            //AngleClass aClass = new AngleClass();
-            //aClass.angleRadians = 10.0; 
-            //AngleStruct aStruct = new AngleStruct(); 
+            AngleClass aClass = new AngleClass();
+            aClass.AngleDegrees = 10.0;
+            Console.WriteLine("Angle class a degrees value: "); Console.Write(aClass.AngleDegrees);
+            AngleClass bclass = aClass;
+            bclass.AngleDegrees = 15.0;
+            Console.WriteLine("\nAngle class a degress value after creating Angle class b shallow copy: "); Console.Write(aClass.AngleDegrees);
+
+            AngleStruct aStruct = new AngleStruct();
+            aStruct.AngleDegrees = 10.0;
+            Console.WriteLine("Angle class a degrees value: "); Console.Write(aStruct.AngleDegrees);
+            AngleStruct bStruct = aStruct;
+            bStruct.AngleDegrees = 15.0;
+            Console.WriteLine("\nAngle class a degress value after creating Angle class b shallow copy: "); Console.Write(aStruct.AngleDegrees);
         }
 
         static void Main(string[] args)

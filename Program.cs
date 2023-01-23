@@ -1,10 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace In_class_ex___one
+// Serves as Empty Solution -> overwrite the blank solution
+namespace In_class_ex
 {
     class Program
     {
+        class AngleClass
+        {
+            private double angleRadians;
+            public double AngleDegrees
+            {
+                get { return angleRadians * 180.0 / Math.PI; }
+                set { angleRadians = value / 180.0 * Math.PI; }
+            }
+        }
+        struct AngleStruct
+        {
+            private double angleRadians;
+            public double AngleDegrees
+            {
+                get { return angleRadians * 180.0 / Math.PI; }
+                set { angleRadians = value / 180.0 * Math.PI; }
+            }
+        }
+
         static int getUserInput()
         {
             Console.WriteLine("C# Demos");
@@ -16,12 +36,21 @@ namespace In_class_ex___one
             int option = Int32.Parse(Console.ReadLine());
             return option; 
         }
+
+        static void passByReferenceAndValue()
+        {
+            //AngleClass aClass = new AngleClass();
+            //aClass.angleRadians = 10.0; 
+            //AngleStruct aStruct = new AngleStruct(); 
+        }
+
         static void Main(string[] args)
         {
             int option = getUserInput(); 
             switch (option)
             {
                 case 1:
+                    passByReferenceAndValue();
                     break;
                 case 2:
                     break;

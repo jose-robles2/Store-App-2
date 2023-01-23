@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\18jos\\Documents\\Word Files\\Washington State University\\3. Junior Year\\Spring 2023\\Cpts 321\\In class ex - one\\In class ex - one.csproj",
-      "projectName": "In class ex - one",
-      "projectPath": "C:\\Users\\18jos\\Documents\\Word Files\\Washington State University\\3. Junior Year\\Spring 2023\\Cpts 321\\In class ex - one\\In class ex - one.csproj",
+      "projectUniqueName": "C:\\Users\\18jos\\Documents\\Word Files\\Washington State University\\3. Junior Year\\Spring 2023\\Cpts 321\\In class ex - one\\In class ex.csproj",
+      "projectName": "In class ex",
+      "projectPath": "C:\\Users\\18jos\\Documents\\Word Files\\Washington State University\\3. Junior Year\\Spring 2023\\Cpts 321\\In class ex - one\\In class ex.csproj",
       "packagesPath": "C:\\Users\\18jos\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\18jos\\Documents\\Word Files\\Washington State University\\3. Junior Year\\Spring 2023\\Cpts 321\\In class ex - one\\obj\\",
       "projectStyle": "PackageReference",

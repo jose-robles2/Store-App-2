@@ -84,6 +84,7 @@ namespace In_class_ex
 
         static void helloWorldOption()
         {
+            BasicMessageClass m = new BasicMessageClass("Hello world");
 
         }
 

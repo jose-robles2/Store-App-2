@@ -25,6 +25,28 @@ namespace In_class_ex
             }
         }
 
+        class BasicMessageClass
+        {
+            private string message; 
+            public string Message
+            {
+                get;
+                set; 
+            }
+            public BasicMessageClass(string m = "")
+            {
+                Message = m; 
+            }
+            public BasicMessageClass()
+            {
+                Message = "Default Message"; 
+            }
+            public void showMessage()
+            {
+                Console.WriteLine("Showing Message below...");
+                Console.WriteLine(message);
+            }
+        }
         static int getUserInput()
         {
             Console.WriteLine("C# Demos");
@@ -54,6 +76,17 @@ namespace In_class_ex
             Console.WriteLine("\nAngle class a degress value after creating Angle class b shallow copy: "); Console.Write(aStruct.AngleDegrees);
         }
 
+        static void messageOption()
+        {
+            BasicMessageClass m = new BasicMessageClass();
+            m.showMessage(); 
+        }
+
+        static void helloWorldOption()
+        {
+
+        }
+
         static void Main(string[] args)
         {
             int option = getUserInput(); 
@@ -63,8 +96,10 @@ namespace In_class_ex
                     passByReferenceAndValue();
                     break;
                 case 2:
+                    messageOption(); 
                     break;
                 case 3:
+                    helloWorldOption(); 
                     break;
                 case 4:
                     break;

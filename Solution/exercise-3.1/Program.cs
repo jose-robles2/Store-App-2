@@ -27,19 +27,19 @@ namespace In_class_ex
 
         class BasicMessageClass
         {
-            private string message; 
+            private string message;
             public string Message
             {
                 get;
-                set; 
+                set;
             }
             public BasicMessageClass(string m = "")
             {
-                Message = m; 
+                Message = m;
             }
             public BasicMessageClass()
             {
-                Message = "Default Message"; 
+                Message = "Default Message";
             }
             public void showMessage()
             {
@@ -56,7 +56,7 @@ namespace In_class_ex
             Console.WriteLine("4. Adding two numbers in a linked list");
             Console.WriteLine("5. Quit");
             int option = Int32.Parse(Console.ReadLine());
-            return option; 
+            return option;
         }
 
         static void passByReferenceAndValue()
@@ -79,7 +79,7 @@ namespace In_class_ex
         static void messageOption()
         {
             BasicMessageClass m = new BasicMessageClass();
-            m.showMessage(); 
+            m.showMessage();
         }
 
         static void helloWorldOption()
@@ -87,7 +87,7 @@ namespace In_class_ex
             BasicMessageClass m = new BasicMessageClass("Hello world");
 
         }
-            
+
         static void linkedListOption()
         {
 
@@ -95,24 +95,25 @@ namespace In_class_ex
 
         static void Main(string[] args)
         {
-            int option = getUserInput(); 
+            int option = getUserInput();
             switch (option)
             {
                 case 1:
                     passByReferenceAndValue();
                     break;
                 case 2:
-                    messageOption(); 
+                    messageOption();
                     break;
                 case 3:
-                    helloWorldOption(); 
+                    helloWorldOption();
                     break;
                 case 4:
-                    linkedListOption(); 
+                    linkedListOption();
                     break;
                 case 5:
-                    break; 
+                    break;
             }
         }
     }
 }
+

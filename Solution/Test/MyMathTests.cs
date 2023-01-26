@@ -1,4 +1,4 @@
-namespace exercise_2_tests
+namespace HelloWorldTests
 {
     public class MyMathTests
     {
@@ -10,7 +10,7 @@ namespace exercise_2_tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            
         }
     }
 }

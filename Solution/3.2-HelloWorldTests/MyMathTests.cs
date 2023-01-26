@@ -8,7 +8,7 @@ namespace HelloWorldTests
         }
 
         [Test]
-        public void Test1()
+        public void TestAdd()
         {
             
         }

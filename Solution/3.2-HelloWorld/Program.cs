@@ -2,9 +2,9 @@
 
 namespace HelloWorld
 {
-    internal class Program
+    public class Program
     {
-        class MyMath
+        public class MyMath
         {
             public static int add(int a, int b)
             {

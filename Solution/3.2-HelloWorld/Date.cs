@@ -10,6 +10,10 @@ namespace HelloWorld
     {
         public static bool IsLeap(double year)
         {
+            if (year % 4 == 0)
+            {
+                return true;
+            }
             return false;
         }
     }

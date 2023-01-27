@@ -13,9 +13,24 @@ namespace HelloWorldTests
     internal class DateTests
     {
         [Test]
-        public void IsLeapTest()
+        public void IsLeapTestYearFalse()
         {
             Assert.AreEqual(false, Date.IsLeap(2023));
+        }
+        [Test]
+        public void IsLeapTestYearTrue()
+        {
+            Assert.AreEqual(true, Date.IsLeap(2024));
+        }
+        [Test]
+        public void IsLeapCenturyYearTrue()
+        {
+            Assert.AreEqual(true, Date.IsLeap(2000));
+        }
+        [Test]
+        public void IsLeapCenturyYearFalse()
+        {
+            Assert.AreEqual(false, Date.IsLeap(2001));
         }
     }
 }

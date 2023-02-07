@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2-HelloWorldTests", "3.2-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.3-HelloWorldFileStream", "4.3-HelloWorldFileStream\4.3-HelloWorldFileStream.csproj", "{7658923A-587D-44B0-AF70-D138DEF264A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLwithStreamsDemo", "DLLwithStreamsDemo\DLLwithStreamsDemo.csproj", "{666A5276-5BB3-45F0-8455-5A30D10679A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.1-StreamUtil", "5.1-StreamUtil\5.1-StreamUtil.csproj", "{954197A8-1F85-48DA-B981-C59D06A42EDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{7658923A-587D-44B0-AF70-D138DEF264A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7658923A-587D-44B0-AF70-D138DEF264A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7658923A-587D-44B0-AF70-D138DEF264A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666A5276-5BB3-45F0-8455-5A30D10679A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666A5276-5BB3-45F0-8455-5A30D10679A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666A5276-5BB3-45F0-8455-5A30D10679A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666A5276-5BB3-45F0-8455-5A30D10679A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{954197A8-1F85-48DA-B981-C59D06A42EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954197A8-1F85-48DA-B981-C59D06A42EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954197A8-1F85-48DA-B981-C59D06A42EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954197A8-1F85-48DA-B981-C59D06A42EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,6 +19,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine("Enter some text to write to the file");
                         string fileContent = Console.ReadLine();                       
                         fs.Write(fileContent);
+
+                        // use WriteInStream instead? 
+                        // veneras sol included WriteInStream as well as UTF8.GetBytes
+                        // hw3 is all about streams
                     }
                     break; 
                 }
@@ -29,9 +33,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.Clear();
                     Console.WriteLine("Try again");
                 }
-
             }
-
         }
     }
 }

@@ -2,7 +2,7 @@
 // Copyright (c) Jose Robles. All Rights Reserved.
 // </copyright>
 
-namespace Final321
+namespace Final321.Frontend
 {
     /// <summary>
     /// Internal class program - starts the app.
@@ -14,6 +14,8 @@ namespace Final321
         /// </summary>
         private static void Main()
         {
+            Menu menu = new Menu();
+            menu.RunMenu();
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="PhysProduct.cs" company="Jose Robles">
+// Copyright (c) Jose Robles. All Rights Reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +21,7 @@ namespace Final321.Backend.Products
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public PhysProduct(string id, string description, ProductType type)
+        public PhysProduct(int id, string description, ProductType type)
             : base(id, description, type)
         {
         }

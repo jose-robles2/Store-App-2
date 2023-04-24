@@ -18,7 +18,7 @@ namespace Final321.Backend.Products
         /// <summary>
         /// Unique product ID.
         /// </summary>
-        protected readonly string id;
+        protected readonly int id;
 
         /// <summary>
         /// Product description.
@@ -36,7 +36,7 @@ namespace Final321.Backend.Products
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public Product(string id, string description, ProductType type)
+        public Product(int id, string description, ProductType type)
         {
             this.id = id;
             this.description = description;

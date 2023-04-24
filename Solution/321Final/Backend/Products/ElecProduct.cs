@@ -17,7 +17,7 @@ namespace Final321.Backend.Products
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public ElecProduct(string id, string description, ProductType type)
+        public ElecProduct(int id, string description, ProductType type)
             : base(id, description, type)
         {
         }

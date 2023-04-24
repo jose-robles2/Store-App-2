@@ -9,6 +9,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+using Final321.Backend;
+using Final321.Backend.Products;
+
 namespace Final321.Frontend
 {
     /// <summary>
@@ -22,10 +25,16 @@ namespace Final321.Frontend
         private bool menuRunning = true;
 
         /// <summary>
+        /// Store manager to interact with the backend.
+        /// </summary>
+        private StoreManager storeManager;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
         /// </summary>
         public Menu()
         {
+            this.storeManager = new StoreManager();
         }
 
         /// <summary>
@@ -86,6 +95,18 @@ namespace Final321.Frontend
         /// </summary>
         private void CreateProductOption()
         {
+            Console.WriteLine("Enter new product ID: ");
+            int.TryParse(Console.ReadLine(), out int productID);
+            Console.WriteLine("Enter a new product description: ");
+            string? productDesc = Console.ReadLine();
+            Console.WriteLine("Electronic or physical? (Enter E or P)");
+            char productType = (char)Console.Read();
+
+            string productTypeStr = productType.ToString().ToUpper();
+            if (productDesc != null && (productTypeStr == "E" || productTypeStr == "F"))
+            {
+                this.storeManager.CreateProduct(productID, productDesc, productTypeStr);
+            }
         }
 
         /// <summary>
@@ -93,6 +114,12 @@ namespace Final321.Frontend
         /// </summary>
         private void SearchProductOption()
         {
+            // prompt user to search a sequence of characters
+                // partial id search is allowed
+                // keyword search allowed
+                    // if input contains spaces, split into tokens -> AND seach or an OR search
+                // display list of products that match the search
+            // if input is an empty string, display all products
         }
 
         /// <summary>
@@ -100,6 +127,32 @@ namespace Final321.Frontend
         /// </summary>
         private void RestockProductOption()
         {
+            Console.WriteLine("Enter a value such that all products less than it will be restocked:");
+            int.TryParse(Console.ReadLine(), out int restockValud);
+
+            // fetch and show products less than N
+            List<Product>? products = this.storeManager.GetProducts();
+
+            if (products == null)
+            {
+                Console.WriteLine("Inventory is empty!");
+                return;
+            }
+
+            foreach (Product product in products)
+            {
+                // display info of each product.
+            }
+
+            // would you like to restock all of them?
+                // yes-> display all info about each product less than N including stock count
+                    // ask how much should they restock by (10 more, 20 more etc)
+                        // show that restock success, show updated item info
+                // no -> allow user to choose an individual item (in a loop, they can choose multiple one by one)
+                    // when selecting an item, ask user if they want to restock this item Y/N
+                        // yes -> ask how much should they restock by (10 more, 20 more etc)
+                            // show that restock success, show updated item info
+                        // no -> take them back one to where they can choose another item one by one to restock or not
         }
     }
 }

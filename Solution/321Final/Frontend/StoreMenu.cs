@@ -133,7 +133,7 @@ namespace Final321.Frontend
             int.TryParse(Console.ReadLine(), out int restockValud);
 
             // fetch and show products less than N
-            List<Product>? products = this.storeManager.GetProducts();
+            Dictionary<int, Product> products = this.storeManager.GetProducts();
 
             if (products == null)
             {
@@ -141,7 +141,7 @@ namespace Final321.Frontend
                 return;
             }
 
-            foreach (Product product in products)
+            foreach (int productID in products.Keys)
             {
                 // display info of each product.
             }

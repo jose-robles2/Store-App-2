@@ -7,6 +7,9 @@ using Final321.Backend;
 
 namespace Tests
 {
+    /// <summary>
+    /// Tests for Final321.Backend.ProductFactory.Builder()
+    /// </summary>
     public class ProductFactoryTests
     {
         [Test]
@@ -20,7 +23,7 @@ namespace Tests
 
             Assert.That(product.Id, Is.EqualTo(id));
             Assert.That(product.Description, Is.EqualTo(description));
-            Assert.That(ElecProduct.Type, Is.EqualTo(type));
+            Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
         [Test]
@@ -34,7 +37,7 @@ namespace Tests
 
             Assert.That(product.Id, Is.EqualTo(id));
             Assert.That(product.Description, Is.EqualTo(description));
-            Assert.That(ElecProduct.Type, Is.EqualTo(type));
+            Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
         [Test]
@@ -48,7 +51,7 @@ namespace Tests
 
             Assert.That(product.Id, Is.EqualTo(id));
             Assert.That(product.Description, Is.EqualTo(description));
-            Assert.That(PhysProduct.Type, Is.EqualTo(type));
+            Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
         [Test]
@@ -62,7 +65,7 @@ namespace Tests
 
             Assert.That(product.Id, Is.EqualTo(id));
             Assert.That(product.Description, Is.EqualTo(description));
-            Assert.That(PhysProduct.Type, Is.EqualTo(type));
+            Assert.That(product.ProductType, Is.EqualTo(type));
         }
     }
 }

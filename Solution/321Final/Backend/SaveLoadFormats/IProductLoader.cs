@@ -29,6 +29,6 @@ namespace Final321.Backend.SaveLoadFormats
         /// </summary>
         /// <param name="stream"> stream. </param>
         /// <returns> spreadsheet. </returns>
-        List<Product>? Load(Stream stream);
+        Dictionary<int, Product> Load(Stream stream);
     }
 }

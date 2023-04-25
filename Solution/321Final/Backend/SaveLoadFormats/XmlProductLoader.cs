@@ -30,7 +30,7 @@ namespace Final321.Backend.SaveLoadFormats
         /// </summary>
         /// <param name="stream"> stream. </param>
         /// <returns> list of products. </returns>
-        public List<Product>? Load(Stream stream)
+        public Dictionary<int, Product> Load(Stream stream)
         {
             return null;
         }

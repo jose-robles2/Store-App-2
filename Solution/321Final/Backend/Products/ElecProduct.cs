@@ -20,15 +20,16 @@ namespace Final321.Backend.Products
         /// </summary>
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
-        public ElecProduct(int id, string description)
-            : base(id, description)
+        /// <param name="type"> type. </param>
+        public ElecProduct(int id = 0, string description = "", ProductType type = ProductType.Physical)
+            : base(id, description, type)
         {
             this.itemCount = int.MaxValue;
         }
 
         /// <summary>
-        /// Gets type of product.
+        /// Gets product type - needed for factory.
         /// </summary>
-        public static ProductType Type => ProductType.Electronic;
+        public static ProductType ProductTypeStatic => ProductType.Electronic;
     }
 }

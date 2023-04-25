@@ -47,15 +47,21 @@ namespace Final321.Backend.Products
         protected int itemCount;
 
         /// <summary>
+        /// Type of product.
+        /// </summary>
+        protected ProductType productType;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Product"/> class.
         /// </summary>
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public Product(int id, string description)
+        public Product(int id, string description, ProductType type)
         {
             this.id = id;
             this.description = description;
+            this.productType = type;
         }
 
         /// <summary>
@@ -75,11 +81,20 @@ namespace Final321.Backend.Products
         }
 
         /// <summary>
-        /// Gets the item count.
+        /// Gets or sets the item count.
         /// </summary>
         public int ItemCount
         {
             get { return this.itemCount; }
+            set { this.itemCount = value; }
+        }
+
+        /// <summary>
+        /// Gets type of product - needed for instances.
+        /// </summary>
+        public ProductType ProductType
+        {
+            get { return this.productType; }
         }
     }
 }

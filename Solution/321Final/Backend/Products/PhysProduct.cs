@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,15 +21,16 @@ namespace Final321.Backend.Products
         /// </summary>
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
-        public PhysProduct(int id, string description)
-            : base(id, description)
+        /// <param name="type"> type. </param>
+        public PhysProduct(int id = 0, string description = "", ProductType type = ProductType.Physical)
+            : base(id, description, type)
         {
             this.itemCount = 0;
         }
 
         /// <summary>
-        /// Gets type of product.
+        /// Gets product type - needed for factory.
         /// </summary>
-        public static ProductType Type => ProductType.Physical;
+        public static ProductType ProductTypeStatic => ProductType.Physical;
     }
 }

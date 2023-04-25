@@ -27,7 +27,7 @@ namespace Final321.Backend
         /// <summary>
         /// Delegate utilized for assembly reflection. Takes in a product and a type.
         /// </summary>
-        /// <param name="product"> product token. </param>
+        /// <param name="productType"> product token. </param>
         /// <param name="type"> Type of operator. </param>
         private delegate void OnProduct(ProductType productType, Type type);
 
@@ -46,12 +46,12 @@ namespace Final321.Backend
             if (SupportedProducts.ContainsKey(productType))
             {
                 Type type = SupportedProducts[productType];
-                ConstructorInfo? constructor = type.GetConstructor(new Type[] { typeof(int), typeof(string) });
+                ConstructorInfo? constructor = type.GetConstructor(new Type[] { typeof(int), typeof(string), typeof(ProductType)});
 
                 if (constructor != null)
                 {
                     // Create an instance of the type using the constructor and the parameters
-                    object? productObject = constructor.Invoke(new object[] { productID, productDesc}); 
+                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productType}); 
 
                     if (productObject != null && productObject is Product)
                     {
@@ -66,7 +66,7 @@ namespace Final321.Backend
         /// <summary>
         /// Checks to see if the input token is supported.
         /// </summary>
-        /// <param name="product"> product. </param>
+        /// <param name="productType"> product. </param>
         /// <returns> bool. </returns>
         public static bool IsProductSupported(ProductType productType)
         {
@@ -92,8 +92,8 @@ namespace Final321.Backend
         /// <summary>
         /// Utilize assembly reflection to search for supported ops by grabbing all subclasses of the Operator class.
         /// </summary>
-        /// <param name="onOperator"> delegate. </param>
-        private static void TraverseAvailableOperators(OnProduct onOperator)
+        /// <param name="onProduct"> delegate. </param>
+        private static void TraverseAvailableOperators(OnProduct onProduct)
         {
             Type productType = typeof(Product);
             IEnumerable<Type>? productTypes = null;
@@ -105,18 +105,19 @@ namespace Final321.Backend
                 foreach (var type in productTypes)
                 {
                     // For each subclass, retrieve the 'type' property
-                    PropertyInfo? productField = type.GetProperty("Type");
+                    PropertyInfo? productField = type.GetProperty("ProductTypeStatic");
                     if (type != null)
                     {
-                        // Get the character of the Operator
+                        // Get the static enum property
                         object? value = productField.GetValue(type);
+
                         if (value is ProductType)
                         {
                             ProductType productString = (ProductType)value;
 
                             if (!SupportedProducts.ContainsKey(productString))
                             {
-                                onOperator(productString, type); // Invoke the delegate
+                                onProduct(productString, type); // Invoke the delegate
                             }
                         }
                     }

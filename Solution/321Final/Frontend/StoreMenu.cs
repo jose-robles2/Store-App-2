@@ -17,7 +17,7 @@ namespace Final321.Frontend
     /// <summary>
     /// Menu class that allows user to access the store inventory management app via console.
     /// </summary>
-    internal class Menu
+    internal class StoreMenu
     {
         /// <summary>
         /// Menu is not ran automatically.
@@ -30,9 +30,9 @@ namespace Final321.Frontend
         private StoreManager storeManager;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Menu"/> class.
+        /// Initializes a new instance of the <see cref="StoreMenu"/> class.
         /// </summary>
-        public Menu()
+        public StoreMenu()
         {
             this.storeManager = new StoreManager();
         }
@@ -42,6 +42,8 @@ namespace Final321.Frontend
         /// </summary>
         public void RunMenu()
         {
+            var p = this.storeManager.CreateProduct(1111, "hithere", "E");
+
             while (this.menuRunning)
             {
                 this.RenderMenu();
@@ -105,7 +107,7 @@ namespace Final321.Frontend
             string productTypeStr = productType.ToString().ToUpper();
             if (productDesc != null && (productTypeStr == "E" || productTypeStr == "F"))
             {
-                this.storeManager.CreateProduct(productID, productDesc, productTypeStr);
+                //this.storeManager.CreateProduct(productID, productDesc, productTypeStr);
             }
         }
 

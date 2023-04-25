@@ -14,7 +14,7 @@ namespace Final321.Frontend
         /// </summary>
         private static void Main()
         {
-            Menu menu = new Menu();
+            StoreMenu menu = new StoreMenu();
             menu.RunMenu();
         }
     }

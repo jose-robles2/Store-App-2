@@ -28,7 +28,7 @@ namespace Final321.Backend
         /// Delegate utilized for assembly reflection. Takes in a product and a type.
         /// </summary>
         /// <param name="productType"> product token. </param>
-        /// <param name="type"> Type of operator. </param>
+        /// <param name="type"> Type of product. </param>
         private delegate void OnProduct(ProductType productType, Type type);
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Initialize the factory by checking for supported operators to be added to the dictionary.
+        /// Initialize the factory by checking for supported products to be added to the dictionary.
         /// </summary>
         private static void InitFactory()
         {
@@ -90,7 +90,7 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Utilize assembly reflection to search for supported ops by grabbing all subclasses of the Operator class.
+        /// Utilize assembly reflection to search for supported prods by grabbing all subclasses of the Operator class.
         /// </summary>
         /// <param name="onProduct"> delegate. </param>
         private static void TraverseAvailableOperators(OnProduct onProduct)

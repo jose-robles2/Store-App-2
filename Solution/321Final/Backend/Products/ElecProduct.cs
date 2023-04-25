@@ -20,6 +20,7 @@ namespace Final321.Backend.Products
         public ElecProduct(int id, string description, ProductType type)
             : base(id, description, type)
         {
+            this.itemCount = int.MaxValue;
         }
     }
 }

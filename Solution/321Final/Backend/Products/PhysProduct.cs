@@ -24,6 +24,7 @@ namespace Final321.Backend.Products
         public PhysProduct(int id, string description, ProductType type)
             : base(id, description, type)
         {
+            this.itemCount = 0;
         }
     }
 }

@@ -31,6 +31,11 @@ namespace Final321.Backend.Products
         protected ProductType type;
 
         /// <summary>
+        /// Item count of a product.
+        /// </summary>
+        protected int itemCount;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Product"/> class.
         /// </summary>
         /// <param name="id"> id. </param>

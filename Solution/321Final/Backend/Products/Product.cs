@@ -11,6 +11,22 @@ using System.Threading.Tasks;
 namespace Final321.Backend.Products
 {
     /// <summary>
+    /// Type of operator.
+    /// </summary>
+    public enum ProductType
+    {
+        /// <summary>
+        /// Can have zero or more physical products.
+        /// </summary>
+        Physical,
+
+        /// <summary>
+        /// Can have unlimited electronic products.
+        /// </summary>
+        Electronic,
+    }
+
+    /// <summary>
     /// Abstract product.
     /// </summary>
     public abstract class Product
@@ -26,11 +42,6 @@ namespace Final321.Backend.Products
         protected readonly string description;
 
         /// <summary>
-        /// Type of product.
-        /// </summary>
-        protected ProductType type;
-
-        /// <summary>
         /// Item count of a product.
         /// </summary>
         protected int itemCount;
@@ -41,35 +52,34 @@ namespace Final321.Backend.Products
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public Product(int id, string description, ProductType type)
+        public Product(int id, string description)
         {
             this.id = id;
             this.description = description;
-            this.type = type;
         }
 
         /// <summary>
-        /// Type of operator.
+        /// Gets the ID.
         /// </summary>
-        public enum ProductType
+        public int Id
         {
-            /// <summary>
-            /// Can have zero or more physical products.
-            /// </summary>
-            Physical,
-
-            /// <summary>
-            /// Can have unlimited electronic products.
-            /// </summary>
-            Electronic,
+            get { return this.id; }
         }
 
         /// <summary>
-        /// Gets the product type.
+        /// Gets the description.
         /// </summary>
-        public ProductType Type
+        public string Description
         {
-            get => this.type;
+            get { return this.description; }
+        }
+
+        /// <summary>
+        /// Gets the item count.
+        /// </summary>
+        public int ItemCount
+        {
+            get { return this.itemCount; }
         }
     }
 }

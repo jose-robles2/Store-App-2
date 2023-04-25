@@ -20,11 +20,15 @@ namespace Final321.Backend.Products
         /// </summary>
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
-        /// <param name="type"> type. </param>
-        public PhysProduct(int id, string description, ProductType type)
-            : base(id, description, type)
+        public PhysProduct(int id, string description)
+            : base(id, description)
         {
             this.itemCount = 0;
         }
+
+        /// <summary>
+        /// Gets type of product.
+        /// </summary>
+        public static ProductType Type => ProductType.Physical;
     }
 }

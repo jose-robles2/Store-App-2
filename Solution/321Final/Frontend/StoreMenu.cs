@@ -1,4 +1,4 @@
-﻿// <copyright file="Menu.cs" company="Jose Robles">
+﻿// <copyright file="StoreMenu.cs" company="Jose Robles">
 // Copyright (c) Jose Robles. All Rights Reserved.
 // </copyright>
 
@@ -42,8 +42,6 @@ namespace Final321.Frontend
         /// </summary>
         public void RunMenu()
         {
-            var p = this.storeManager.CreateProduct(1111, "hithere", "E");
-
             while (this.menuRunning)
             {
                 this.RenderMenu();
@@ -55,6 +53,8 @@ namespace Final321.Frontend
         /// </summary>
         private void RenderMenu()
         {
+            Console.WriteLine("Welcome to the store inventory management app!");
+
             switch (this.GetMenuUserInput())
             {
                 case 1:
@@ -67,6 +67,9 @@ namespace Final321.Frontend
                     this.RestockProductOption();
                     break;
                 case 4:
+                    this.ViewInventoryOption();
+                    break;
+                case 5:
                     this.menuRunning = false;
                     break;
                 default:
@@ -82,12 +85,12 @@ namespace Final321.Frontend
         /// <returns> Integer. </returns>
         private int GetMenuUserInput()
         {
-            Console.WriteLine("Welcome to your store inventory management app!");
             Console.WriteLine("Enter a menu option...");
             Console.WriteLine("1. Create a new product");
             Console.WriteLine("2. Search for a product");
             Console.WriteLine("3. Restock a product");
-            Console.WriteLine("4. Quit");
+            Console.WriteLine("4. View inventory");
+            Console.WriteLine("5. Quit");
             int.TryParse(Console.ReadLine(), out int result);
             return result;
         }
@@ -98,16 +101,27 @@ namespace Final321.Frontend
         private void CreateProductOption()
         {
             Console.WriteLine("Enter new product ID: ");
-            int.TryParse(Console.ReadLine(), out int productID);
+            string? productID = Console.ReadLine();
             Console.WriteLine("Enter a new product description: ");
             string? productDesc = Console.ReadLine();
             Console.WriteLine("Electronic or physical? (Enter E or P)");
-            char productType = (char)Console.Read();
+            string productType = Console.ReadLine();
+            productType = productType.ToString().ToUpper();
 
-            string productTypeStr = productType.ToString().ToUpper();
-            if (productDesc != null && (productTypeStr == "E" || productTypeStr == "F"))
+            if (productID != null && productDesc != null && (productType == "E" || productType == "P"))
             {
-                //this.storeManager.CreateProduct(productID, productDesc, productTypeStr);
+                int res = this.storeManager.CreateProduct(productID, productDesc, productType);
+
+                if (res == 0)
+                {
+                    Console.WriteLine("Product successfully created!");
+                    this.PrepareNextUserInput();
+                }
+                else
+                {
+                    Console.WriteLine("Product unable to be created!");
+                    this.PrepareNextUserInput();
+                }
             }
         }
 
@@ -129,11 +143,11 @@ namespace Final321.Frontend
         /// </summary>
         private void RestockProductOption()
         {
-            Console.WriteLine("Enter a value such that all products less than it will be restocked:");
-            int.TryParse(Console.ReadLine(), out int restockValud);
+            Console.WriteLine("Enter a value n such that all products less than n it will be restocked:");
+            int.TryParse(Console.ReadLine(), out int restockValue);
 
             // fetch and show products less than N
-            Dictionary<int, Product> products = this.storeManager.GetProducts();
+            Dictionary<string, Product> products = this.storeManager.GetProductsLessThan(restockValue);
 
             if (products == null)
             {
@@ -141,9 +155,20 @@ namespace Final321.Frontend
                 return;
             }
 
-            foreach (int productID in products.Keys)
+            foreach (var productID in products.Keys)
             {
-                // display info of each product.
+                Console.WriteLine(products[productID].ToString());
+            }
+
+            Console.WriteLine("Would you like to restock all items? [Y or N]");
+            char input = (char)Console.Read();
+            string inputStr = input.ToString().ToUpper();
+
+            if (inputStr == "Y")
+            {
+            }
+            else if (inputStr == "N")
+            {
             }
 
             // would you like to restock all of them?
@@ -155,6 +180,29 @@ namespace Final321.Frontend
                         // yes -> ask how much should they restock by (10 more, 20 more etc)
                             // show that restock success, show updated item info
                         // no -> take them back one to where they can choose another item one by one to restock or not
+        }
+
+        private void ViewInventoryOption()
+        {
+            Console.WriteLine("/////////////////////////////////////");
+            int counter = 1;
+            foreach (var productId in this.storeManager.GetProducts().Keys)
+            {
+                Console.WriteLine("" + counter + ". " + this.storeManager.GetProducts()[productId].ToString());
+                Console.WriteLine("/////////////////////////////////////");
+                counter++;
+            }
+            this.PrepareNextUserInput();
+        }
+
+        /// <summary>
+        /// Pause then clear the screen.
+        /// </summary>
+        private void PrepareNextUserInput()
+        {
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

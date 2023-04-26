@@ -58,6 +58,11 @@ namespace Final321.Backend
         /// <returns> int for success/failure. </returns>
         public int RestockAllProducts(int restockTarget, int amountToRestock)
         {
+            if (amountToRestock < 1)
+            {
+                return -1;
+            }
+
             return this.inventoryManager.RestockAllProductsWithFlag(restockTarget, amountToRestock);
         }
 
@@ -68,7 +73,28 @@ namespace Final321.Backend
         /// <returns> int for success/failure. </returns>
         public int RestockAllProducts(int amountToRestock)
         {
+            if (amountToRestock < 1)
+            {
+                return -1;
+            }
+
             return this.inventoryManager.RestockAllProducts(amountToRestock);
+        }
+
+        /// <summary>
+        /// Restock all physical products.
+        /// </summary>
+        /// <param name="productID"> id. </param>
+        /// <param name="amountToRestock"> amount. </param>
+        /// <returns> int for success/failure. </returns>
+        public int RestockAProduct(string productID, int amountToRestock)
+        {
+            if (amountToRestock < 1)
+            {
+                return -1;
+            }
+
+            return this.inventoryManager.RestockProduct(productID, amountToRestock);
         }
 
         /// <summary>
@@ -98,6 +124,15 @@ namespace Final321.Backend
         public Dictionary<string, Product>? GetProductsLessThan(int n)
         {
             return this.inventoryManager.GetProductsLessThan(n);
+        }
+
+        /// <summary>
+        /// Check if inventory empty.
+        /// </summary>
+        /// <returns> bool. </returns>
+        public bool IsInventoryEmpty()
+        {
+            return this.inventoryManager.IsInventoryEmpty();
         }
     }
 }

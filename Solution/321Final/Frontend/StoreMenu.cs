@@ -163,47 +163,65 @@ namespace Final321.Frontend
 
             if (input == "Y")
             {
-                Console.WriteLine("Enter the restock amount");
-                int.TryParse(Console.ReadLine(), out int restockAmount);
-                int res = this.storeManager.RestockAllProducts(restockValue, restockAmount);
-                this.HandleRestockReturnValue(res);
+                this.HandleRestockAllProductsLessThanN(restockValue);
             }
             else if (input == "N")
             {
-                while (true)
+                this.HandleIndividualProductRestock();
+            }
+        }
+
+        /// <summary>
+        /// User enters "Y" to restock all products less than N, handle their input and restock.
+        /// </summary>
+        /// <param name="restockValue"> restock target. </param>
+        private void HandleRestockAllProductsLessThanN(int restockValue)
+        {
+            Console.WriteLine("Enter the restock amount");
+            int.TryParse(Console.ReadLine(), out int restockAmount);
+            int res = this.storeManager.RestockAllProducts(restockValue, restockAmount);
+            this.HandleRestockReturnValue(res);
+        }
+
+        /// <summary>
+        /// User enters "N" so they will be prompted to restock individual.
+        /// products. Handle their input and restock the product.
+        /// </summary>
+        private void HandleIndividualProductRestock()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Select an item to restock individually.");
+                this.PrintInventory(this.storeManager.GetProducts());
+                int label = this.storeManager.GetProducts().Count + 1;
+                Console.WriteLine(label + ". Quit");
+                int.TryParse(Console.ReadLine(), out int indexToRestock);
+
+                string productID = this.GetProductIDFromIndex(indexToRestock);
+
+                if (productID == string.Empty)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Select an item to restock individually.");
-                    this.PrintInventory(this.storeManager.GetProducts());
-                    int label = this.storeManager.GetProducts().Count + 1;
-                    Console.WriteLine(label + ". Quit");
-                    int.TryParse(Console.ReadLine(), out int indexToRestock);
+                    return;
+                }
 
-                    string productID = this.GetProductIDFromIndex(indexToRestock);
+                Console.WriteLine("Enter the restock amount");
+                int.TryParse(Console.ReadLine(), out int restockAmount);
+                int res = this.RestockWithProductID(productID, restockAmount);
+                Console.Clear();
+                this.HandleRestockReturnValue(res);
 
-                    if (productID == string.Empty)
-                    {
-                        return;
-                    }
+                Console.WriteLine("Would you like to restock another item? [Y or N]");
+                string input = Console.ReadLine();
+                input = input.ToString().ToUpper();
 
-                    Console.WriteLine("Enter the restock amount");
-                    int.TryParse(Console.ReadLine(), out int restockAmount);
-                    int res = this.RestockWithProductID(productID, restockAmount);
-                    Console.Clear();
-                    this.HandleRestockReturnValue(res);
-
-                    Console.WriteLine("Would you like to restock another item? [Y or N]");
-                    input = Console.ReadLine();
-                    input = input.ToString().ToUpper();
-
-                    if (input == "Y")
-                    {
-                        continue;
-                    }
-                    else if (input == "N")
-                    {
-                        break;
-                    }
+                if (input == "Y")
+                {
+                    continue;
+                }
+                else if (input == "N")
+                {
+                    break;
                 }
             }
         }

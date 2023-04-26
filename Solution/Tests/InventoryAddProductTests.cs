@@ -23,7 +23,7 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            inventoryManager.AddProduct(1111, "Item 1111", Final321.Backend.Products.ProductType.Physical);
+            inventoryManager.AddProduct("1111", "Item 1111", "P");
 
             Assert.That(inventoryManager.IsInventoryEmpty(), Is.EqualTo(false));
         }
@@ -33,7 +33,7 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            Product product = ProductFactory.Builder(2222, "Item 2222", Final321.Backend.Products.ProductType.Electronic);
+            Product product = ProductFactory.Builder("2222", "Item 2222", Final321.Backend.Products.ProductType.Electronic);
 
             inventoryManager.AddProduct(product);
 

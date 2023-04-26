@@ -15,7 +15,7 @@ namespace Tests
         [Test]
         public void CreateElecProductTest()
         {
-            int id = 1111;
+            string id = "1111";
             string description = "Item 1111";
             ProductType type = ProductType.Electronic;
 
@@ -29,7 +29,7 @@ namespace Tests
         [Test]
         public void CreateElecProductTest2()
         {
-            int id = 2222;
+            string id = "2222";
             string description = "Item 2222";
             ProductType type = ProductType.Electronic;
 
@@ -43,7 +43,7 @@ namespace Tests
         [Test]
         public void CreatePhysProductTest()
         {
-            int id = 3333;
+            string id = "3333";
             string description = "Item 3333";
             ProductType type = ProductType.Physical;
 
@@ -57,7 +57,7 @@ namespace Tests
         [Test]
         public void CreatePhysProductTest2()
         {
-            int id = 4444;
+            string id = "4444";
             string description = "Item 4444";
             ProductType type = ProductType.Physical;
 

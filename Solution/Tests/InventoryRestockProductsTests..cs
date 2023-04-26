@@ -23,17 +23,17 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            int id = 1111;
+            string id = "1111";
             string description = "Item 1111";
-            ProductType type = ProductType.Physical;
+            string type = "P";
 
-            int id2 = 11111;
+            string id2 = "11111";
             string description2 = "Item 11111";
-            ProductType type2 = ProductType.Physical;
+            string type2 = "P";
 
-            int id3 = 111111;
+            string id3 = "111111";
             string description3 = "Item 111111";
-            ProductType type3 = ProductType.Physical;
+            string type3 = "P";
 
             inventoryManager.AddProduct(id, description, type);
             inventoryManager.AddProduct(id2, description2, type2);
@@ -52,17 +52,17 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            int id = 1111;
+            string id = "1111";
             string description = "Item 1111";
-            ProductType type = ProductType.Physical;
+            string type = "P";
 
-            int id2 = 11111;
+            string id2 = "11111";
             string description2 = "Item 11111";
-            ProductType type2 = ProductType.Physical;
+            string type2 = "P";
 
-            int id3 = 111111;
+            string id3 = "111111";
             string description3 = "Item 111111";
-            ProductType type3 = ProductType.Physical;
+            string type3 = "P";
 
             inventoryManager.AddProduct(id, description, type);
             inventoryManager.AddProduct(id2, description2, type2);
@@ -81,17 +81,17 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            int id = 1111;
+            string id = "1111";
             string description = "Item 1111";
-            ProductType type = ProductType.Physical;
+            string type = "P";
 
-            int id2 = 11111;
+            string id2 = "11111";
             string description2 = "Item 11111";
-            ProductType type2 = ProductType.Physical;
+            string type2 = "P";
 
-            int id3 = 111111;
+            string id3 = "111111";
             string description3 = "Item 111111";
-            ProductType type3 = ProductType.Physical;
+            string type3 = "P";
 
             inventoryManager.AddProduct(id, description, type);
             inventoryManager.AddProduct(id2, description2, type2);

@@ -129,7 +129,6 @@ namespace Final321.Backend
                     if (this.products[productID].ItemCount < restockNumber && this.products[productID].ProductType == ProductType.Physical)
                     {
                         this.RestockProduct(productID, amountToRestock);
-                        return 0;
                     }
                 }
                 catch
@@ -138,7 +137,7 @@ namespace Final321.Backend
                 }
             }
 
-            return -1;
+            return 0;
         }
 
         /// <summary>

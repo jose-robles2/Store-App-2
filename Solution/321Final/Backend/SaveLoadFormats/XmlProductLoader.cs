@@ -117,6 +117,7 @@ namespace Final321.Backend.SaveLoadFormats
                         continue;
                     }
                 }
+
                 inventoryManager.AddProduct(id, description, productType, itemCount);
             }
 

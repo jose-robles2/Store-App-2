@@ -87,12 +87,37 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Restock all products with less item count than restockNumber.
+        /// Restock all phys products with no flag.
+        /// </summary>
+        /// <param name="amountToRestock"> amount. </param>
+        /// <returns> int. </returns>
+        public int RestockAllProducts(int amountToRestock)
+        {
+                foreach (int productID in this.products.Keys)
+                {
+                    try
+                    {
+                        if (this.products[productID].ProductType == ProductType.Physical)
+                        {
+                            this.RestockProduct(productID, amountToRestock);
+                        }
+                    }
+                    catch
+                    {
+                        return -1;
+                    }
+                }
+
+                return 0;
+        }
+
+        /// <summary>
+        /// Restock all phys products with less item count than restockNumber.
         /// </summary>
         /// <param name="restockNumber"> number to check to restock. </param>
         /// <param name="amountToRestock"> amount. </param>
         /// <returns> int for success/failure. </returns>
-        public int RestockAllProducts(int restockNumber, int amountToRestock)
+        public int RestockAllProductsWithFlag(int restockNumber, int amountToRestock)
         {
             foreach (int productID in this.products.Keys)
             {
@@ -100,7 +125,7 @@ namespace Final321.Backend
                 {
                     if (this.products[productID].ItemCount < restockNumber && this.products[productID].ProductType == ProductType.Physical)
                     {
-                        this.products[productID].ItemCount += amountToRestock;
+                        this.RestockProduct(productID, amountToRestock);
                         return 0;
                     }
                 }
@@ -114,17 +139,16 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Restock an individual product.
+        /// Restock an individual phys product.
         /// </summary>
         /// <param name="productID"> id. </param>
-        /// <param name="restockNumber"> restock num. </param>
         /// <param name="amountToRestock"> amount. </param>
         /// <returns> int for success/failure. </returns>
-        public int RestockProduct(int productID, int restockNumber, int amountToRestock)
+        public int RestockProduct(int productID, int amountToRestock)
         {
             try
             {
-                if (this.products[productID].ItemCount < restockNumber && this.products[productID].ProductType == ProductType.Physical)
+                if (this.products[productID].ProductType == ProductType.Physical)
                 {
                     this.products[productID].ItemCount += amountToRestock;
                     return 0;
@@ -145,6 +169,46 @@ namespace Final321.Backend
         public Dictionary<int, Product> GetProducts()
         {
             return new Dictionary<int, Product>(this.products);
+        }
+
+        /// <summary>
+        /// Fetch all products in inventory greater than n via deep copy.
+        /// </summary>
+        /// <param name="n"> target. </param>
+        /// <returns> list of products. </returns>
+        public Dictionary<int, Product>? GetProductsGreaterThan(int n)
+        {
+            Dictionary<int, Product>? productsCopy = new Dictionary<int, Product>();
+
+            foreach (int productID in this.products.Keys)
+            {
+                if (this.products[productID].ItemCount > n)
+                {
+                    productsCopy.Add(productID, this.products[productID]);
+                }
+            }
+
+            return productsCopy;
+        }
+
+        /// <summary>
+        /// Fetch all products in inventory less than n via deep copy.
+        /// </summary>
+        /// <param name="n"> target. </param>
+        /// <returns> list of products. </returns>
+        public Dictionary<int, Product>? GetProductsLessThan(int n)
+        {
+            Dictionary<int, Product>? productsCopy = new Dictionary<int, Product>();
+
+            foreach (int prodID in this.products.Keys)
+            {
+                if (this.products[prodID].ItemCount < n)
+                {
+                    productsCopy.Add(prodID, this.products[prodID]);
+                }
+            }
+
+            return productsCopy;
         }
 
         /// <summary>

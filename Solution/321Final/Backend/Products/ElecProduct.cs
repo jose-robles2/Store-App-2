@@ -21,7 +21,8 @@ namespace Final321.Backend.Products
         /// <param name="id"> id. </param>
         /// <param name="description"> description. </param>
         /// <param name="type"> type. </param>
-        public ElecProduct(int id = 0, string description = "", ProductType type = ProductType.Physical)
+        /// <param name="itemCount"> count, will always be "infinite". </param>
+        public ElecProduct(string id = "", string description = "", ProductType type = ProductType.Physical, int itemCount = 0)
             : base(id, description, type)
         {
             this.itemCount = int.MaxValue;

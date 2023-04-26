@@ -67,7 +67,7 @@ namespace Final321.Frontend
                     this.RestockProductOption();
                     break;
                 case 4:
-                    this.ViewInventoryOption();
+                    this.PrintInventory(this.storeManager.GetProducts());
                     break;
                 case 5:
                     this.menuRunning = false;
@@ -146,53 +146,132 @@ namespace Final321.Frontend
             Console.WriteLine("Enter a value n such that all products less than n it will be restocked:");
             int.TryParse(Console.ReadLine(), out int restockValue);
 
-            // fetch and show products less than N
             Dictionary<string, Product> products = this.storeManager.GetProductsLessThan(restockValue);
 
-            if (products == null)
+            if (products == null || products.Count == 0)
             {
                 Console.WriteLine("Inventory is empty!");
+                this.PrepareNextUserInput();
                 return;
             }
 
-            foreach (var productID in products.Keys)
-            {
-                Console.WriteLine(products[productID].ToString());
-            }
+            this.PrintInventory(products);
 
             Console.WriteLine("Would you like to restock all items? [Y or N]");
-            char input = (char)Console.Read();
-            string inputStr = input.ToString().ToUpper();
+            string input = Console.ReadLine();
+            input = input.ToString().ToUpper();
 
-            if (inputStr == "Y")
+            if (input == "Y")
             {
+                Console.WriteLine("Enter the restock amount");
+                int.TryParse(Console.ReadLine(), out int restockAmount);
+                int res = this.storeManager.RestockAllProducts(restockValue, restockAmount);
+                this.HandleRestockReturnValue(res);
             }
-            else if (inputStr == "N")
+            else if (input == "N")
             {
-            }
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Select an item to restock individually.");
+                    this.PrintInventory(this.storeManager.GetProducts());
+                    int label = this.storeManager.GetProducts().Count + 1;
+                    Console.WriteLine(label + ". Quit");
+                    int.TryParse(Console.ReadLine(), out int indexToRestock);
 
-            // would you like to restock all of them?
-                // yes-> display all info about each product less than N including stock count
-                    // ask how much should they restock by (10 more, 20 more etc)
-                        // show that restock success, show updated item info
-                // no -> allow user to choose an individual item (in a loop, they can choose multiple one by one)
-                    // when selecting an item, ask user if they want to restock this item Y/N
-                        // yes -> ask how much should they restock by (10 more, 20 more etc)
-                            // show that restock success, show updated item info
-                        // no -> take them back one to where they can choose another item one by one to restock or not
+                    string productID = this.GetProductIDFromIndex(indexToRestock);
+
+                    if (productID == string.Empty)
+                    {
+                        return;
+                    }
+
+                    Console.WriteLine("Enter the restock amount");
+                    int.TryParse(Console.ReadLine(), out int restockAmount);
+                    int res = this.RestockWithProductID(productID, restockAmount);
+                    Console.Clear();
+                    this.HandleRestockReturnValue(res);
+
+                    Console.WriteLine("Would you like to restock another item? [Y or N]");
+                    input = Console.ReadLine();
+                    input = input.ToString().ToUpper();
+
+                    if (input == "Y")
+                    {
+                        continue;
+                    }
+                    else if (input == "N")
+                    {
+                        break;
+                    }
+                }
+            }
         }
 
-        private void ViewInventoryOption()
+        /// <summary>
+        /// Is the index valid, if yes a productID is returned.
+        /// </summary>
+        /// <param name="index"> index. </param>
+        /// <returns> string. </returns>
+        private string GetProductIDFromIndex(int index)
+        {
+            int i = 0;
+            foreach (var productId in this.storeManager.GetProducts().Keys)
+            {
+                if (i == (index - 1))
+                {
+                    return productId;
+                }
+
+                i++;
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Restock at an index.
+        /// </summary>
+        /// <param name="productID"> id. </param>
+        /// <param name="restockAmount"> amount. </param>
+        /// <returns> success/failure int. </returns>
+        private int RestockWithProductID(string productID, int restockAmount)
+        {
+            return this.storeManager.RestockAProduct(productID, restockAmount);
+        }
+
+        /// <summary>
+        /// Display output after a restock.
+        /// </summary>
+        /// <param name="res"> result. </param>
+        private void HandleRestockReturnValue(int res)
+        {
+            if (res == 0)
+            {
+                Console.WriteLine("Restock succesful!");
+                this.PrintInventory(this.storeManager.GetProducts());
+                this.PrepareNextUserInput();
+            }
+            else
+            {
+                Console.WriteLine("Restock unsuccessful! Something went wrong...");
+            }
+        }
+
+        /// <summary>
+        /// Print the inventory.
+        /// </summary>
+        /// <param name="products"> inventory being printed. </param>
+        private void PrintInventory(Dictionary<string, Product> products)
         {
             Console.WriteLine("/////////////////////////////////////");
             int counter = 1;
-            foreach (var productId in this.storeManager.GetProducts().Keys)
+            foreach (var productId in products.Keys)
             {
-                Console.WriteLine("" + counter + ". " + this.storeManager.GetProducts()[productId].ToString());
+                Console.WriteLine(counter + ". " + products[productId].ToString());
                 Console.WriteLine("/////////////////////////////////////");
                 counter++;
             }
-            this.PrepareNextUserInput();
         }
 
         /// <summary>

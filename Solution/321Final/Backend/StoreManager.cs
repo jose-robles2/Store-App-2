@@ -26,7 +26,7 @@ namespace Final321.Backend
         /// </summary>
         public StoreManager()
         {
-            this.inventoryManager = new InventoryManager();
+            this.LoadInventory();
         }
 
         /// <summary>
@@ -133,6 +133,18 @@ namespace Final321.Backend
         public bool IsInventoryEmpty()
         {
             return this.inventoryManager.IsInventoryEmpty();
+        }
+
+        /// <summary>
+        /// Load products into our inventory via an xml file saved in file explorer.
+        /// </summary>
+        private void LoadInventory()
+        {
+            string path = "inventory.xml";
+            using (FileStream stream = new FileStream(path, FileMode.Open))
+            {
+                this.inventoryManager = new InventoryManager(stream);
+            }
         }
     }
 }

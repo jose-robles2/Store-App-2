@@ -38,20 +38,21 @@ namespace Final321.Backend
         /// <param name="productID"> id. </param>
         /// <param name="productDesc"> desc. </param>
         /// <param name="productType"> type. </param>
+        /// <param name="itemCount"> itemCount. </param>
         /// <returns> Product. </returns>
         /// <exception cref="Exception"> unknown product. </exception>
-        public static Product Builder(int productID, string productDesc, ProductType productType)
+        public static Product Builder(string productID, string productDesc, ProductType productType, int itemCount = 0)
         {
             InitFactory();
             if (SupportedProducts.ContainsKey(productType))
             {
                 Type type = SupportedProducts[productType];
-                ConstructorInfo? constructor = type.GetConstructor(new Type[] { typeof(int), typeof(string), typeof(ProductType)});
+                ConstructorInfo? constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string), typeof(ProductType), typeof(int) });
 
                 if (constructor != null)
                 {
                     // Create an instance of the type using the constructor and the parameters
-                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productType}); 
+                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productType, itemCount });
 
                     if (productObject != null && productObject is Product)
                     {

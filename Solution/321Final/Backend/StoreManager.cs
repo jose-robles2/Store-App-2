@@ -36,18 +36,16 @@ namespace Final321.Backend
         /// <param name="productDesc"> description. </param>
         /// <param name="productTypeStr"> type. </param>
         /// <returns> int for success/failure. </returns>
-        public int CreateProduct(int productID, string productDesc, string productTypeStr)
+        public int CreateProduct(string productID, string productDesc, string productTypeStr)
         {
-            ProductType productTypeEnum = productTypeStr == "E" ? ProductType.Electronic : ProductType.Physical;
-
-            return this.inventoryManager.AddProduct(productID, productDesc, productTypeEnum);
+            return this.inventoryManager.AddProduct(productID, productDesc, productTypeStr);
         }
 
         /// <summary>
         /// Search for a product, return products matching the search.
         /// </summary>
         /// <returns> List of products. </returns>
-        public Dictionary<int, Product> SearchProduct()
+        public Dictionary<string, Product> SearchProduct()
         {
             return this.inventoryManager.SearchProduct();
         }
@@ -77,7 +75,7 @@ namespace Final321.Backend
         /// Fetch all products in inventory.
         /// </summary>
         /// <returns> list of products. </returns>
-        public Dictionary<int, Product>? GetProducts()
+        public Dictionary<string, Product>? GetProducts()
         {
             return this.inventoryManager.GetProducts();
         }
@@ -87,7 +85,7 @@ namespace Final321.Backend
         /// </summary>
         /// <param name="n"> target. </param>
         /// <returns> list of products. </returns>
-        public Dictionary<int, Product>? GetProductsGreaterThan(int n)
+        public Dictionary<string, Product>? GetProductsGreaterThan(int n)
         {
             return this.inventoryManager.GetProductsGreaterThan(n);
         }
@@ -97,7 +95,7 @@ namespace Final321.Backend
         /// </summary>
         /// <param name="n"> target. </param>
         /// <returns> list of products. </returns>
-        public Dictionary<int, Product>? GetProductsLessThan(int n)
+        public Dictionary<string, Product>? GetProductsLessThan(int n)
         {
             return this.inventoryManager.GetProductsLessThan(n);
         }

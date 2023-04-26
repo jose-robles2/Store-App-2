@@ -37,7 +37,7 @@ namespace Final321.Backend
         /// </summary>
         /// <param name="productID"> id. </param>
         /// <param name="productDesc"> desc. </param>
-        /// <param name="productType"> type. </param>
+        /// <param name="productType">enum type. </param>
         /// <param name="itemCount"> itemCount. </param>
         /// <returns> Product. </returns>
         /// <exception cref="Exception"> unknown product. </exception>
@@ -53,6 +53,54 @@ namespace Final321.Backend
                 {
                     // Create an instance of the type using the constructor and the parameters
                     object? productObject = constructor.Invoke(new object[] { productID, productDesc, productType, itemCount });
+
+                    if (productObject != null && productObject is Product)
+                    {
+                        return (Product)productObject;
+                    }
+                }
+            }
+
+            throw new Exception("Unknown Product type.");
+        }
+
+        /// <summary>
+        /// Static Builder method. Factory returns a Product obj that 
+        /// contains a specialized product as it's dynamic type.
+        /// </summary>
+        /// <param name="productID"> id. </param>
+        /// <param name="productDesc"> desc. </param>
+        /// <param name="productType"> string type. </param>
+        /// <param name="itemCount"> itemCount. </param>
+        /// <returns> Product. </returns>
+        /// <exception cref="Exception"> unknown product. </exception>
+        public static Product Builder(string productID, string productDesc, string productType, int itemCount = 0)
+        {
+            ProductType productTypeEnum = new ProductType();
+
+            if (productType == "E" || productType == "P")
+            {
+                productTypeEnum = productType == "E" ? ProductType.Electronic : ProductType.Physical;
+            }
+            else if (productType == "electronic" || productType == "physical")
+            {
+                productTypeEnum = productType == "electronic" ? ProductType.Electronic : ProductType.Physical;
+            }
+            else if (productType == "ELECTRONIC" || productType == "PHYSICAL")
+            {
+                productTypeEnum = productType == "ELECTRONIC" ? ProductType.Electronic : ProductType.Physical;
+            }
+
+            InitFactory();
+            if (SupportedProducts.ContainsKey(productTypeEnum))
+            {
+                Type type = SupportedProducts[productTypeEnum];
+                ConstructorInfo? constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string), typeof(ProductType), typeof(int) });
+
+                if (constructor != null)
+                {
+                    // Create an instance of the type using the constructor and the parameters
+                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productTypeEnum, itemCount });
 
                     if (productObject != null && productObject is Product)
                     {

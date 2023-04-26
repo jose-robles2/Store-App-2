@@ -50,9 +50,7 @@ namespace Final321.Backend
         /// <returns> int for success/failure. </returns
         public int AddProduct(string productID, string productDesc, string productType, int itemCount = 0)
         {
-            ProductType productTypeEnum = productType == "E" ? ProductType.Electronic : ProductType.Physical;
-
-            Product product = ProductFactory.Builder(productID, productDesc, productTypeEnum, itemCount);
+            Product product = ProductFactory.Builder(productID, productDesc, productType, itemCount);
 
             if (product == null)
             {

@@ -87,14 +87,14 @@ namespace Final321.Backend
         private static void InitFactory()
         {
             OnProduct onProduct = (prod, type) => SupportedProducts.Add(prod, type);
-            TraverseAvailableOperators(onProduct);
+            TraverseAvailableProducts(onProduct);
         }
 
         /// <summary>
         /// Utilize assembly reflection to search for supported prods by grabbing all subclasses of the Operator class.
         /// </summary>
         /// <param name="onProduct"> delegate. </param>
-        private static void TraverseAvailableOperators(OnProduct onProduct)
+        private static void TraverseAvailableProducts(OnProduct onProduct)
         {
             Type productType = typeof(Product);
             IEnumerable<Type>? productTypes = null;

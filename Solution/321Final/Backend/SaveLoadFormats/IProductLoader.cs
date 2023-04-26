@@ -15,20 +15,20 @@ namespace Final321.Backend.SaveLoadFormats
     /// <summary>
     /// Interface for loading and saving inventory into different formats.
     /// </summary>
-    internal interface IProductLoader
+    public interface IProductLoader
     {
         /// <summary>
         /// Save to a file.
         /// </summary>
         /// <param name="stream"> stream. </param>
         /// <param name="products"> products. </param>
-        void Save(Stream stream, List<Product> products);
+        public void Save(Stream stream, Dictionary<string, Product> products);
 
         /// <summary>
         /// Load from a file.
         /// </summary>
         /// <param name="stream"> stream. </param>
         /// <returns> spreadsheet. </returns>
-        Dictionary<int, Product> Load(Stream stream);
+        Dictionary<string, Product> Load(Stream stream);
     }
 }

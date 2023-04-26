@@ -96,5 +96,18 @@ namespace Final321.Backend.Products
         {
             get { return this.productType; }
         }
+
+        /// <summary>
+        /// Print a product.
+        /// </summary>
+        /// <returns> string. </returns>
+        public override string ToString()
+        {
+            string output = "ID: " + this.id + "\n" +
+                            "Description: " + this.description + "\n" +
+                            "Type: " + this.productType + "\n" +
+                            "Item Count: " + this.itemCount + "\n";
+            return output;
+        }
     }
 }

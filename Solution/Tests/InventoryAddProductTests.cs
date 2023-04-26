@@ -33,7 +33,7 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            Product product = ProductFactory.Builder(1111, "Item 1111", Final321.Backend.Products.ProductType.Physical);
+            Product product = ProductFactory.Builder(2222, "Item 2222", Final321.Backend.Products.ProductType.Electronic);
 
             inventoryManager.AddProduct(product);
 

@@ -14,45 +14,12 @@ using Final321.Backend.Products;
 namespace Tests
 {
     /// <summary>
-    /// Tests for Final321.Backend.InventoryManager.RestockProducts()
+    /// Tests for Final321.Backend.InventoryManager.GetProducts()
     /// </summary>
-    internal class InventoryRestockProductsTests
+    internal class InventoryGetProductsTests
     {
         [Test]
-        public void RestockProductsTest1()
-        {
-            InventoryManager inventoryManager = new InventoryManager();
-
-            int id = 1111;
-            string description = "Item 1111";
-            ProductType type = ProductType.Physical;
-
-            int id2 = 11111;
-            string description2 = "Item 11111";
-            ProductType type2 = ProductType.Physical;
-
-            int id3 = 111111;
-            string description3 = "Item 111111";
-            ProductType type3 = ProductType.Physical;
-
-            inventoryManager.AddProduct(id, description, type);
-            inventoryManager.AddProduct(id2, description2, type2);
-            inventoryManager.AddProduct(id3, description3, type3);
-
-            inventoryManager.RestockProduct(id, 10);
-            inventoryManager.RestockProduct(id2, 10);
-            inventoryManager.RestockProduct(id3, 10);
-
-            var products = inventoryManager.GetProducts();
-
-            foreach (int productID in products.Keys)
-            {
-                Assert.That(products[productID].ItemCount, Is.EqualTo(10));
-            }
-        }
-
-        [Test]
-        public void RestockProductsTest2()
+        public void GetProductsTest1()
         {
             InventoryManager inventoryManager = new InventoryManager();
 
@@ -75,17 +42,13 @@ namespace Tests
             inventoryManager.RestockProduct(id2, 11);
             inventoryManager.RestockProduct(id3, 10);
 
-            inventoryManager.RestockAllProductsWithFlag(11, 10);
-            var products = inventoryManager.GetProductsGreaterThan(11);
+            var products = inventoryManager.GetProducts();
 
-            foreach (int productID in products.Keys)
-            {
-                Assert.That(products[productID].ItemCount, Is.EqualTo(20));
-            }
+            Assert.That(products.Count, Is.EqualTo(3));
         }
 
         [Test]
-        public void RestockProductsTest3()
+        public void GetProductsTest2()
         {
             InventoryManager inventoryManager = new InventoryManager();
 
@@ -104,14 +67,42 @@ namespace Tests
             inventoryManager.AddProduct(id, description, type);
             inventoryManager.AddProduct(id2, description2, type2);
             inventoryManager.AddProduct(id3, description3, type3);
+            inventoryManager.RestockProduct(id, 10);
+            inventoryManager.RestockProduct(id2, 11);
+            inventoryManager.RestockProduct(id3, 10);
 
-            inventoryManager.RestockAllProducts(20);
-            var products = inventoryManager.GetProducts();
+            var products = inventoryManager.GetProductsGreaterThan(10);
 
-            foreach (int productID in products.Keys)
-            {
-                Assert.That(products[productID].ItemCount, Is.EqualTo(20));
-            }
+            Assert.That(products.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void GetProductsTest3()
+        {
+            InventoryManager inventoryManager = new InventoryManager();
+
+            int id = 1111;
+            string description = "Item 1111";
+            ProductType type = ProductType.Physical;
+
+            int id2 = 11111;
+            string description2 = "Item 11111";
+            ProductType type2 = ProductType.Physical;
+
+            int id3 = 111111;
+            string description3 = "Item 111111";
+            ProductType type3 = ProductType.Physical;
+
+            inventoryManager.AddProduct(id, description, type);
+            inventoryManager.AddProduct(id2, description2, type2);
+            inventoryManager.AddProduct(id3, description3, type3);
+            inventoryManager.RestockProduct(id, 10);
+            inventoryManager.RestockProduct(id2, 11);
+            inventoryManager.RestockProduct(id3, 10);
+
+            var products = inventoryManager.GetProductsLessThan(11);
+
+            Assert.That(products.Count, Is.EqualTo(2));
         }
     }
 }

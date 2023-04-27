@@ -29,8 +29,8 @@ namespace Tests
 
             Product product = inventoryManager.SearchForAProduct(id);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(desc));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(desc.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(ProductType.Physical));
         }
 
@@ -47,8 +47,8 @@ namespace Tests
 
             Product product = inventoryManager.SearchForAProduct(partialID);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(desc));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(desc.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(ProductType.Physical));
         }
 

@@ -179,10 +179,17 @@ namespace Final321.Backend
         /// </summary>
         private void LoadInventory()
         {
-            string path = "inventory.xml";
-            using (FileStream stream = new FileStream(path, FileMode.Open))
+            try
             {
-                this.inventoryManager = new InventoryManager(stream);
+                string path = "inventory.xml";
+                using (FileStream stream = new FileStream(path, FileMode.Open))
+                {
+                    this.inventoryManager = new InventoryManager(stream);
+                }
+            }
+            catch
+            {
+                return;
             }
         }
     }

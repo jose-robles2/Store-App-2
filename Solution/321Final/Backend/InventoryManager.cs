@@ -132,7 +132,7 @@ namespace Final321.Backend
                 {
                     string keywordToLower = keyword.ToLower();
 
-                    if (product.Key.Contains(keywordToLower) || product.Value.Description.Contains(keywordToLower) && !searchResults.ContainsKey(product.Key))
+                    if ((product.Key.Contains(keywordToLower) || product.Value.Description.Contains(keywordToLower)) && !searchResults.ContainsKey(product.Key))
                     {
                         searchResults.Add(product.Key, product.Value);
                     }

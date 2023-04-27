@@ -42,12 +42,33 @@ namespace Final321.Backend
         }
 
         /// <summary>
+        /// Search for product(s) via keywords.
+        /// </summary>
+        /// <param name="keywords"> list of keyword. </param>
+        /// <returns> List of products. </returns>
+        public Dictionary<string, Product> SearchProducts(string[] keywords, string andOR)
+        {
+            andOR = andOR.ToUpper();
+            if (andOR == "AND")
+            {
+                return this.inventoryManager.SearchProductsAND(keywords);
+            }
+            else if (andOR == "OR")
+            {
+                return this.inventoryManager.SearchProductsOR(keywords);
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Search for a product, return products matching the search.
         /// </summary>
+        /// <param name="productID"> id. </param>
         /// <returns> List of products. </returns>
-        public Dictionary<string, Product> SearchProduct()
+        public Product SearchForAProduct(string productID)
         {
-            return this.inventoryManager.SearchProduct();
+            return this.inventoryManager.SearchForAProduct(productID);
         }
 
         /// <summary>

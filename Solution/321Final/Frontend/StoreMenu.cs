@@ -70,10 +70,10 @@ namespace Final321.Frontend
                     this.PrintInventory(this.storeManager.GetProducts());
                     break;
                 case 5:
-                    //this.PrintInventory(this.storeManager.GetPhysicalProducts());
+                    this.PrintInventory(this.storeManager.GetPhysicalProducts());
                     break;
                 case 6:
-                    //this.PrintInventory(this.storeManager.GetElectronicProducts());
+                    this.PrintInventory(this.storeManager.GetElectronicProducts());
                     break;
                 case 7:
                     this.menuRunning = false;
@@ -96,7 +96,9 @@ namespace Final321.Frontend
             Console.WriteLine("2. Search for a product");
             Console.WriteLine("3. Restock a product");
             Console.WriteLine("4. View inventory");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("5. View Physical Items");
+            Console.WriteLine("6. View Electronic Items");
+            Console.WriteLine("7. Quit");
             int.TryParse(Console.ReadLine(), out int result);
             return result;
         }

@@ -121,17 +121,35 @@ namespace Final321.Backend
         /// <summary>
         /// Fetch all products in inventory.
         /// </summary>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product>? GetProducts()
         {
             return this.inventoryManager.GetProducts();
         }
 
         /// <summary>
+        /// Fetch all elec products in inventory.
+        /// </summary>
+        /// <returns> dict of products. </returns>
+        public Dictionary<string, Product>? GetElectronicProducts()
+        {
+            return this.inventoryManager.GetElectronicProducts();
+        }
+
+        /// <summary>
+        /// Fetch all phys products in inventory.
+        /// </summary>
+        /// <returns> dict of products. </returns>
+        public Dictionary<string, Product>? GetPhysicalProducts()
+        {
+            return this.inventoryManager.GetPhysicalProducts();
+        }
+
+        /// <summary>
         /// Fetch all products in inventory greater than n.
         /// </summary>
         /// <param name="n"> target. </param>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product>? GetProductsGreaterThan(int n)
         {
             return this.inventoryManager.GetProductsGreaterThan(n);
@@ -141,7 +159,7 @@ namespace Final321.Backend
         /// Fetch all products in inventory less than n.
         /// </summary>
         /// <param name="n"> target. </param>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product>? GetProductsLessThan(int n)
         {
             return this.inventoryManager.GetProductsLessThan(n);

@@ -246,17 +246,55 @@ namespace Final321.Backend
         /// <summary>
         /// Fetch all products in inventory via deep copy.
         /// </summary>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product> GetProducts()
         {
             return new Dictionary<string, Product>(this.products);
         }
 
         /// <summary>
+        /// Fetch all elec products in inventory.
+        /// </summary>
+        /// <returns> dict of products. </returns>
+        public Dictionary<string, Product>? GetElectronicProducts()
+        {
+            Dictionary<string, Product> result = new Dictionary<string, Product>();
+
+            foreach (KeyValuePair<string, Product> keyValuePair in this.products)
+            {
+                if (keyValuePair.Value.ProductType == ProductType.Electronic)
+                {
+                    result.Add(keyValuePair.Key, keyValuePair.Value);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Fetch all phys products in inventory.
+        /// </summary>
+        /// <returns> dict of products. </returns>
+        public Dictionary<string, Product>? GetPhysicalProducts()
+        {
+            Dictionary<string, Product> result = new Dictionary<string, Product>();
+
+            foreach (KeyValuePair<string, Product> keyValuePair in this.products)
+            {
+                if (keyValuePair.Value.ProductType == ProductType.Physical)
+                {
+                    result.Add(keyValuePair.Key, keyValuePair.Value);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Fetch all products in inventory greater than n via deep copy.
         /// </summary>
         /// <param name="n"> target. </param>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product>? GetProductsGreaterThan(int n)
         {
             Dictionary<string, Product>? productsCopy = new Dictionary<string, Product>();
@@ -276,7 +314,7 @@ namespace Final321.Backend
         /// Fetch all products in inventory less than n via deep copy.
         /// </summary>
         /// <param name="n"> target. </param>
-        /// <returns> list of products. </returns>
+        /// <returns> dict of products. </returns>
         public Dictionary<string, Product>? GetProductsLessThan(int n)
         {
             Dictionary<string, Product>? productsCopy = new Dictionary<string, Product>();

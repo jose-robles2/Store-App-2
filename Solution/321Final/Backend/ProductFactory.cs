@@ -65,7 +65,7 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Static Builder method. Factory returns a Product obj that 
+        /// Static Builder method. Factory returns a Product obj that
         /// contains a specialized product as it's dynamic type.
         /// </summary>
         /// <param name="productID"> id. </param>

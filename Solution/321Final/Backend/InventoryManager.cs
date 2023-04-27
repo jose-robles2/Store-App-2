@@ -82,10 +82,37 @@ namespace Final321.Backend
         /// Search a product.
         /// </summary>
         /// <returns> Dict of products. </returns>
-        public Dictionary<string, Product> SearchProduct()
+        public Dictionary<string, Product> SearchProducts()
         {
             return null;
         }
+
+        /// <summary>
+        /// Search for an individual product. Input can be a partial id.
+        /// </summary>
+        /// <param name="productID"> id </param>
+        /// <returns> product </returns>
+        public Product SearchForAProduct(string productID)
+        {
+            try
+            {
+                return this.products[productID];
+            }
+            catch
+            {
+                // No exact match found, search for partial ID match
+                foreach (string id in this.products.Keys)
+                {
+                    if (id.Contains(productID))
+                    {
+                        return this.products[id];
+                    }
+                }
+
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// Restock all phys products with no flag.

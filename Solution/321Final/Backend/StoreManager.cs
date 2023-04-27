@@ -14,7 +14,7 @@ namespace Final321.Backend
     /// <summary>
     /// Store manager controller object.
     /// </summary>
-    internal class StoreManager
+    public class StoreManager
     {
         /// <summary>
         /// Manager object to access inventory.

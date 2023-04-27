@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
 using Final321.Backend;
 using Final321.Backend.Products;
 
@@ -70,6 +70,12 @@ namespace Final321.Frontend
                     this.PrintInventory(this.storeManager.GetProducts());
                     break;
                 case 5:
+                    //this.PrintInventory(this.storeManager.GetPhysicalProducts());
+                    break;
+                case 6:
+                    //this.PrintInventory(this.storeManager.GetElectronicProducts());
+                    break;
+                case 7:
                     this.menuRunning = false;
                     break;
                 default:
@@ -130,12 +136,72 @@ namespace Final321.Frontend
         /// </summary>
         private void SearchProductOption()
         {
-            // prompt user to search a sequence of characters
-                // partial id search is allowed
-                // keyword search allowed
-                    // if input contains spaces, split into tokens -> AND seach or an OR search
-                // display list of products that match the search
-            // if input is an empty string, display all products
+            Console.WriteLine("Search for product: [Id or key words]");
+            string? input = Console.ReadLine();
+
+            if (input != null && input != string.Empty)
+            {
+                if (input.Contains(" "))
+                {
+                    string[] keywords = input.Split(" ");
+                    this.HandleKeywordSearch(keywords);
+                }
+                else
+                {
+                    Product product = this.SearchProduct(input);
+                    this.DisplayProduct(product);
+                }
+            }
+            else
+            {
+                this.PrintInventory(this.storeManager.GetProducts());
+            }
+        }
+
+        /// <summary>
+        /// Allow the user to search via AND or OR with their inputted keywords.
+        /// </summary>
+        /// <param name="keywords"> keywords. </param>
+        private void HandleKeywordSearch(string[] keywords)
+        {
+            Console.WriteLine("Is this an AND search or an OR search?");
+            string? input = Console.ReadLine();
+
+            if (input != null)
+            {
+                input = input.ToUpper();
+
+                if (input == "AND" || input == "OR")
+                {
+                    this.PrintInventory(this.storeManager.SearchProducts(keywords, input));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Search for an individual product.
+        /// </summary>
+        /// <param name="input"> search input, can be partial. </param>
+        /// <returns> prduct. </returns>
+        private Product SearchProduct(string input)
+        {
+            return this.storeManager.SearchForAProduct(input);
+        }
+
+        /// <summary>
+        /// Display a product onto menu.
+        /// </summary>
+        /// <param name="product"> product. </param>
+        private void DisplayProduct(Product product)
+        {
+            if (product == null)
+            {
+                Console.WriteLine("Product does not exist...");
+                return;
+            }
+
+            Console.WriteLine("Product:");
+            Console.WriteLine(product.ToString());
         }
 
         /// <summary>

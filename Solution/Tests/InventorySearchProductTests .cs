@@ -70,8 +70,8 @@ namespace Tests
             Dictionary<string, Product> products = inventoryManager.SearchProductsAND(searchTerms);
 
             Assert.That(products.Count, Is.EqualTo(1));
-            Assert.That(products[id].Id, Is.EqualTo(id));
-            Assert.That(products[id].Description, Is.EqualTo(desc));
+            Assert.That(products[id].Id, Is.EqualTo(id.ToLower()));
+            Assert.That(products[id].Description, Is.EqualTo(desc.ToLower()));
             Assert.That(products[id].ProductType, Is.EqualTo(ProductType.Physical));
         }
 
@@ -93,8 +93,8 @@ namespace Tests
             Dictionary<string, Product> products = inventoryManager.SearchProductsAND(searchTerms);
 
             Assert.That(products.Count, Is.EqualTo(1));
-            Assert.That(products[id2].Id, Is.EqualTo(id2));
-            Assert.That(products[id2].Description, Is.EqualTo(desc2));
+            Assert.That(products[id2].Id, Is.EqualTo(id2.ToLower()));
+            Assert.That(products[id2].Description, Is.EqualTo(desc2.ToLower()));
             Assert.That(products[id2].ProductType, Is.EqualTo(ProductType.Physical));
         }
 
@@ -118,16 +118,16 @@ namespace Tests
             Assert.That(products.Count, Is.EqualTo(3));
 
 
-            Assert.That(products[id].Id, Is.EqualTo(id));
-            Assert.That(products[id].Description, Is.EqualTo(desc));
+            Assert.That(products[id].Id, Is.EqualTo(id.ToLower()));
+            Assert.That(products[id].Description, Is.EqualTo(desc.ToLower()));
             Assert.That(products[id].ProductType, Is.EqualTo(ProductType.Physical));
 
-            Assert.That(products[id2].Id, Is.EqualTo(id2));
-            Assert.That(products[id2].Description, Is.EqualTo(desc2));
+            Assert.That(products[id2].Id, Is.EqualTo(id2.ToLower()));
+            Assert.That(products[id2].Description, Is.EqualTo(desc2.ToLower()));
             Assert.That(products[id2].ProductType, Is.EqualTo(ProductType.Physical));
 
-            Assert.That(products[id3].Id, Is.EqualTo(id3));
-            Assert.That(products[id3].Description, Is.EqualTo(desc3));
+            Assert.That(products[id3].Id, Is.EqualTo(id3.ToLower()));
+            Assert.That(products[id3].Description, Is.EqualTo(desc3.ToLower()));
             Assert.That(products[id3].ProductType, Is.EqualTo(ProductType.Electronic));
         }
 
@@ -148,16 +148,16 @@ namespace Tests
 
             Dictionary<string, Product> products = inventoryManager.SearchProductsOR(searchTerms);
 
-            Assert.That(products[id].Id, Is.EqualTo(id));
-            Assert.That(products[id].Description, Is.EqualTo(desc));
+            Assert.That(products[id].Id, Is.EqualTo(id.ToLower()));
+            Assert.That(products[id].Description, Is.EqualTo(desc.ToLower()));
             Assert.That(products[id].ProductType, Is.EqualTo(ProductType.Physical));
 
-            Assert.That(products[id2].Id, Is.EqualTo(id2));
-            Assert.That(products[id2].Description, Is.EqualTo(desc2));
+            Assert.That(products[id2].Id, Is.EqualTo(id2.ToLower()));
+            Assert.That(products[id2].Description, Is.EqualTo(desc2.ToLower()));
             Assert.That(products[id2].ProductType, Is.EqualTo(ProductType.Physical));
 
-            Assert.That(products[id3].Id, Is.EqualTo(id3));
-            Assert.That(products[id3].Description, Is.EqualTo(desc3));
+            Assert.That(products[id3].Id, Is.EqualTo(id3.ToLower()));
+            Assert.That(products[id3].Description, Is.EqualTo(desc3.ToLower()));
             Assert.That(products[id3].ProductType, Is.EqualTo(ProductType.Electronic));
         }
     }

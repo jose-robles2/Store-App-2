@@ -21,8 +21,8 @@ namespace Tests
 
             Product product = ProductFactory.Builder(id, description, type);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(description));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(description.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
@@ -35,8 +35,8 @@ namespace Tests
 
             Product product = ProductFactory.Builder(id, description, type);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(description));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(description.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
@@ -49,8 +49,8 @@ namespace Tests
 
             Product product = ProductFactory.Builder(id, description, type);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(description));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(description.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(type));
         }
 
@@ -63,8 +63,8 @@ namespace Tests
 
             Product product = ProductFactory.Builder(id, description, type);
 
-            Assert.That(product.Id, Is.EqualTo(id));
-            Assert.That(product.Description, Is.EqualTo(description));
+            Assert.That(product.Id, Is.EqualTo(id.ToLower()));
+            Assert.That(product.Description, Is.EqualTo(description.ToLower()));
             Assert.That(product.ProductType, Is.EqualTo(type));
         }
     }

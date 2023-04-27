@@ -52,7 +52,7 @@ namespace Final321.Backend
                 if (constructor != null)
                 {
                     // Create an instance of the type using the constructor and the parameters
-                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productType, itemCount });
+                    object? productObject = constructor.Invoke(new object[] { productID.ToLower(), productDesc.ToLower(), productType, itemCount });
 
                     if (productObject != null && productObject is Product)
                     {
@@ -100,7 +100,7 @@ namespace Final321.Backend
                 if (constructor != null)
                 {
                     // Create an instance of the type using the constructor and the parameters
-                    object? productObject = constructor.Invoke(new object[] { productID, productDesc, productTypeEnum, itemCount });
+                    object? productObject = constructor.Invoke(new object[] { productID.ToLower(), productDesc.ToLower(), productTypeEnum, itemCount });
 
                     if (productObject != null && productObject is Product)
                     {

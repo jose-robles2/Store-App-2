@@ -104,5 +104,63 @@ namespace Tests
 
             Assert.That(products.Count, Is.EqualTo(2));
         }
+
+        [Test]
+        public void GetElectronicProductsTest()
+        {
+            InventoryManager inventoryManager = new InventoryManager();
+
+            string id = "1111";
+            string description = "Item 1111";
+            string type = "E";
+
+            string id2 = "11111";
+            string description2 = "Item 11111";
+            string type2 = "E";
+
+            string id3 = "111111";
+            string description3 = "Item 111111";
+            string type3 = "E";
+
+            inventoryManager.AddProduct(id, description, type);
+            inventoryManager.AddProduct(id2, description2, type2);
+            inventoryManager.AddProduct(id3, description3, type3);
+            inventoryManager.RestockProduct(id, 10);
+            inventoryManager.RestockProduct(id2, 11);
+            inventoryManager.RestockProduct(id3, 10);
+
+            var products = inventoryManager.GetElectronicProducts();
+
+            Assert.That(products.Count, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void GetPhysicalProductsTest()
+        {
+            InventoryManager inventoryManager = new InventoryManager();
+
+            string id = "1111";
+            string description = "Item 1111";
+            string type = "P";
+
+            string id2 = "11111";
+            string description2 = "Item 11111";
+            string type2 = "P";
+
+            string id3 = "111111";
+            string description3 = "Item 111111";
+            string type3 = "P";
+
+            inventoryManager.AddProduct(id, description, type);
+            inventoryManager.AddProduct(id2, description2, type2);
+            inventoryManager.AddProduct(id3, description3, type3);
+            inventoryManager.RestockProduct(id, 10);
+            inventoryManager.RestockProduct(id2, 11);
+            inventoryManager.RestockProduct(id3, 10);
+
+            var products = inventoryManager.GetPhysicalProducts();
+
+            Assert.That(products.Count, Is.EqualTo(3));
+        }
     }
 }

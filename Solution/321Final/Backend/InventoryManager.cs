@@ -79,12 +79,51 @@ namespace Final321.Backend
         }
 
         /// <summary>
-        /// Search a product.
+        /// Search products with an AND. All keyword from the keywords must be.
+        /// present in each product that is returned via searchedResults dictionary.
         /// </summary>
+        /// <param name="keywords"> words to search. </param>
         /// <returns> Dict of products. </returns>
-        public Dictionary<string, Product> SearchProducts()
+        public Dictionary<string, Product> SearchProductsAND(string[] keywords)
         {
-            return null;
+            Dictionary<string, Product> searchResults = new Dictionary<string, Product>();
+
+            foreach (KeyValuePair<string, Product> product in this.products)
+            {
+                foreach (string keyword in keywords)
+                {
+                    if (product.Key.Contains(keyword) && product.Value.Description.Contains(keyword) && !searchResults.ContainsKey(product.Key))
+                    {
+                        searchResults.Add(product.Key, product.Value);
+                    }
+                }
+            }
+
+            return searchResults;
+        }
+
+        /// <summary>
+        /// Search products with an OR. At least one keyword from the keywords must be. 
+        /// present in each product that is returned via searchedResults dictionary.
+        /// </summary>
+        /// <param name="keywords"> words to search. </param>
+        /// <returns> Dict of products. </returns>
+        public Dictionary<string, Product> SearchProductsOR(string[] keywords)
+        {
+            Dictionary<string, Product> searchResults = new Dictionary<string, Product>();
+
+            foreach (KeyValuePair<string, Product> product in this.products)
+            {
+                foreach (string keyword in keywords)
+                {
+                    if (product.Key.Contains(keyword) || product.Value.Description.Contains(keyword) && !searchResults.ContainsKey(product.Key))
+                    {
+                        searchResults.Add(product.Key, product.Value);
+                    }
+                }
+            }
+
+            return searchResults;
         }
 
         /// <summary>

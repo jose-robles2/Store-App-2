@@ -10,4 +10,4 @@ Jose Robles
 - Restock items less than n or restock individually
 - Unit tests for many methods for the above Features
 
-Link to YouTube Demo: https://youtu.be/wXbt14cBbSI
+Link to YouTube Demo: https://youtu.be/vlvfx9FiwaU

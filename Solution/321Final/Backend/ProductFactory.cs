@@ -78,17 +78,17 @@ namespace Final321.Backend
         {
             ProductType productTypeEnum = new ProductType();
 
-            if (productType == "E" || productType == "P")
+            productID = productID.ToLower();
+            productDesc = productDesc.ToLower();
+            productType = productType.ToLower();
+
+            if (productType == "e" || productType == "p")
             {
-                productTypeEnum = productType == "E" ? ProductType.Electronic : ProductType.Physical;
+                productTypeEnum = productType == "e" ? ProductType.Electronic : ProductType.Physical;
             }
             else if (productType == "electronic" || productType == "physical")
             {
                 productTypeEnum = productType == "electronic" ? ProductType.Electronic : ProductType.Physical;
-            }
-            else if (productType == "ELECTRONIC" || productType == "PHYSICAL")
-            {
-                productTypeEnum = productType == "ELECTRONIC" ? ProductType.Electronic : ProductType.Physical;
             }
 
             InitFactory();

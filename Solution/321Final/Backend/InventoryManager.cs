@@ -90,17 +90,31 @@ namespace Final321.Backend
 
             foreach (KeyValuePair<string, Product> product in this.products)
             {
+                bool allKeywordsPresent = false;
                 foreach (string keyword in keywords)
                 {
-                    if (product.Key.Contains(keyword) && product.Value.Description.Contains(keyword) && !searchResults.ContainsKey(product.Key))
+                    string keywordToLower = keyword.ToLower();
+                    if (product.Key.Contains(keywordToLower) || product.Value.Description.Contains(keywordToLower))
                     {
-                        searchResults.Add(product.Key, product.Value);
+                        allKeywordsPresent = true;
                     }
+                    else
+                    {
+                        allKeywordsPresent = false;
+                        break;
+                    }
+                }
+
+                if (allKeywordsPresent && !searchResults.ContainsKey(product.Key))
+                {
+                    searchResults.Add(product.Key, product.Value);
+                    allKeywordsPresent = false;
                 }
             }
 
             return searchResults;
         }
+
 
         /// <summary>
         /// Search products with an OR. At least one keyword from the keywords must be. 
@@ -116,7 +130,9 @@ namespace Final321.Backend
             {
                 foreach (string keyword in keywords)
                 {
-                    if (product.Key.Contains(keyword) || product.Value.Description.Contains(keyword) && !searchResults.ContainsKey(product.Key))
+                    string keywordToLower = keyword.ToLower();
+
+                    if (product.Key.Contains(keywordToLower) || product.Value.Description.Contains(keywordToLower) && !searchResults.ContainsKey(product.Key))
                     {
                         searchResults.Add(product.Key, product.Value);
                     }
@@ -151,7 +167,6 @@ namespace Final321.Backend
                 return null;
             }
         }
-
 
         /// <summary>
         /// Restock all phys products with no flag.

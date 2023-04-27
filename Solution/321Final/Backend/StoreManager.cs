@@ -189,6 +189,7 @@ namespace Final321.Backend
             }
             catch
             {
+                this.inventoryManager = new InventoryManager();
                 return;
             }
         }

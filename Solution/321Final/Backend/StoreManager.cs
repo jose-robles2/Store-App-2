@@ -181,7 +181,7 @@ namespace Final321.Backend
         {
             try
             {
-                string path = "321Final/Backend/inventory.xml";
+                string path = "inventory.xml";
                 using (FileStream stream = new FileStream(path, FileMode.Open))
                 {
                     this.inventoryManager = new InventoryManager(stream);

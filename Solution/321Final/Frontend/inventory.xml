@@ -1,0 +1,52 @@
+﻿<products>
+	<product id="orange">
+		<description>Fruit</description>
+		<productType>physical</productType>
+		<itemCount>10</itemCount>
+	</product>
+	<product id="apple">
+		<description>Fruit</description>
+		<productType>physical</productType>
+		<itemCount>5</itemCount>
+	</product>
+	<product id="banana">
+		<description>Fruit</description>
+		<productType>physical</productType>
+		<itemCount>15</itemCount>
+	</product>
+	<product id="carrot">
+		<description>Vegetable</description>
+		<productType>physical</productType>
+		<itemCount>20</itemCount>
+	</product>
+	<product id="potato">
+		<description>Vegetable</description>
+		<productType>physical</productType>
+		<itemCount>30</itemCount>
+	</product>
+	<product id="beef">
+		<description>Meat</description>
+		<productType>physical</productType>
+		<itemCount>8</itemCount>
+	</product>
+	<product id="chicken">
+		<description>Meat</description>
+		<productType>physical</productType>
+		<itemCount>12</itemCount>
+	</product>
+	<product id="bread">
+		<description>Bakery</description>
+		<productType>physical</productType>
+		<itemCount>7</itemCount>
+	</product>
+	<product id="laptop">
+		<description>Apple MacBook Pro</description>
+		<productType>electronic</productType>
+		<itemCount>0</itemCount>
+	</product>
+	<product id="phone">
+		<description>Apple iPhone 12</description>
+		<productType>electronic</productType>
+		<itemCount>0</itemCount>
+	</product>
+</products>

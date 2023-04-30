@@ -2,7 +2,7 @@
 // Copyright (c) Jose Robles. All Rights Reserved.
 // </copyright>
 
-namespace Final321.Frontend
+namespace Store.Frontend
 {
     /// <summary>
     /// Internal class program - starts the app.

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Final321.Backend.Products
+namespace Store.Backend.Products
 {
     /// <summary>
     /// Type of operator.

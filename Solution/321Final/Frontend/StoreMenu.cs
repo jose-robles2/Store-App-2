@@ -9,10 +9,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using Final321.Backend;
-using Final321.Backend.Products;
+using Store.Backend;
+using Store.Backend.Products;
 
-namespace Final321.Frontend
+namespace Store.Frontend
 {
     /// <summary>
     /// Menu class that allows user to access the store inventory management app via console.

@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Final321.Backend.Products;
-using Final321.Backend.SaveLoadFormats;
+using Store.Backend.Products;
+using Store.Backend.SaveLoadFormats;
 
-namespace Final321.Backend
+namespace Store.Backend
 {
     /// <summary>
     /// Manages product interactions.

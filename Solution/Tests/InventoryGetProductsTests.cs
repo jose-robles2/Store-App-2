@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Final321.Backend;
-using Final321.Backend.Products;
+using Store.Backend;
+using Store.Backend.Products;
 
 namespace Tests
 {
     /// <summary>
-    /// Tests for Final321.Backend.InventoryManager.GetProducts()
+    /// Tests for Store.Backend.InventoryManager.GetProducts()
     /// </summary>
     internal class InventoryGetProductsTests
     {

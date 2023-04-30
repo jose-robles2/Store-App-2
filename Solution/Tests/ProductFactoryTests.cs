@@ -2,13 +2,13 @@
 // Copyright (c) Jose Robles. All Rights Reserved.
 // </copyright>
 
-using Final321.Backend.Products;
-using Final321.Backend;
+using Store.Backend.Products;
+using Store.Backend;
 
 namespace Tests
 {
     /// <summary>
-    /// Tests for Final321.Backend.ProductFactory.Builder()
+    /// Tests for Store.Backend.ProductFactory.Builder()
     /// </summary>
     public class ProductFactoryTests
     {

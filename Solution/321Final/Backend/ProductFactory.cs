@@ -10,9 +10,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Final321.Backend.Products;
+using Store.Backend.Products;
 
-namespace Final321.Backend
+namespace Store.Backend
 {
     /// <summary>
     /// Factory object responsible for creating specialized products.

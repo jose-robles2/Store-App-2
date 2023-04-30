@@ -2,14 +2,14 @@
 // Copyright (c) Jose Robles. All Rights Reserved.
 // </copyright>
 
-using Final321.Backend.Products;
-using Final321.Backend;
-using Final321.Backend.SaveLoadFormats;
+using Store.Backend.Products;
+using Store.Backend;
+using Store.Backend.SaveLoadFormats;
 
 namespace Tests
 {
     /// <summary>
-    /// Tests for Final321.Backend.SaveLoadFormats.XmlProductLoader
+    /// Tests for Store.Backend.SaveLoadFormats.XmlProductLoader
     /// </summary>
     public class ProductLoaderTests
     {

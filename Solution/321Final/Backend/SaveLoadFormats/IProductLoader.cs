@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Final321.Backend.Products;
+using Store.Backend.Products;
 
-namespace Final321.Backend.SaveLoadFormats
+namespace Store.Backend.SaveLoadFormats
 {
     /// <summary>
     /// Interface for loading and saving inventory into different formats.

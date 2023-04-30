@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-using Final321.Backend.Products;
+using Store.Backend.Products;
 
-namespace Final321.Backend.SaveLoadFormats
+namespace Store.Backend.SaveLoadFormats
 {
     /// <summary>
     /// Xml save/load class that implements interface.

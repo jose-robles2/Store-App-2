@@ -9,7 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Final321.Backend.Products
+namespace Store.Backend.Products
 {
     /// <summary>
     /// Physical product.

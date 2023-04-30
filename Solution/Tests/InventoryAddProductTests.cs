@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Final321.Backend;
-using Final321.Backend.Products;
+using Store.Backend;
+using Store.Backend.Products;
 
 namespace Tests
 {
     /// <summary>
-    /// Tests for Final321.Backend.InventoryManager.AddProduct()
+    /// Tests for Store.Backend.InventoryManager.AddProduct()
     /// </summary>
     internal class InventoryAddProductTests
     {
@@ -33,7 +33,7 @@ namespace Tests
         {
             InventoryManager inventoryManager = new InventoryManager();
 
-            Product product = ProductFactory.Builder("2222", "Item 2222", Final321.Backend.Products.ProductType.Electronic);
+            Product product = ProductFactory.Builder("2222", "Item 2222", Store.Backend.Products.ProductType.Electronic);
 
             inventoryManager.AddProduct(product);
 

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\321Final\Final321.csproj" />
+    <ProjectReference Include="..\321Final\Store.csproj" />
   </ItemGroup>
 
 </Project>

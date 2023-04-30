@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Final321.Backend.Products;
+using Store.Backend.Products;
 
-namespace Final321.Backend
+namespace Store.Backend
 {
     /// <summary>
     /// Store manager controller object.
